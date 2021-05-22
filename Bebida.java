@@ -98,18 +98,23 @@ public class Bebida {
     }
 
     public void vendeBebida(Clientes cliente, int saida){
-        if (bAlcOol == true){
-            if(cliente.isBCliMai() == true){
-            this.nSaiEst = saida;
-            nQtdEst = nQtdEst - saida;
-            }
+        if (nQtdEst > 0){
+            if (bAlcOol == true){
+                if(cliente.isBCliMai() == true){
+                this.nSaiEst = saida;
+                nQtdEst = nQtdEst - saida;
+                }
 
+                else{
+                    System.out.println("tente de novo daqui uns anos, kiddo.");
+                }
+            }
             else{
-                System.out.println("tente de novo daqui uns anos, kiddo.");
+                nQtdEst = nQtdEst - saida;
             }
         }
         else{
-            nQtdEst--;
+            System.out.println("cabo o estoque fi");
         }
     }
     //--- F ---- Definição de Métodos ------//

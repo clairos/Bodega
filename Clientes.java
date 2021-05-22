@@ -15,8 +15,10 @@ public class Clientes {
         this.bCliMai = bCliMai;
         this.bFiaDoo = bFiaDoo;
     }
+    public Clientes(){
+    }
     //--- F ---- Construtores --------------//
-    
+
     //--- I ---- Getters & Setters ---------//
     public int getNCodCli() {
         return this.nCodCli;
