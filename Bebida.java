@@ -17,11 +17,17 @@ public class Bebida {
     }
 
     public void vendeBebida(){
-        if ((bAlcOol = true) && (bCliMai = true)){
+        Clientes bCliMai = new Clientes();
+        if (bAlcOol = true){
+            if(bCliMai = true){
             nQtdEst--;
+            }
+            else{
+                System.out.println("tente de novo daqui uns anos, kiddo.");
+            }
         }
-        if ((bAlcOol = true) && (bCliMai = false)){
-            System.out.println("volte daqui uns anos, kiddo.");
+        else{
+            nQtdEst--;
         }
     }
     //--- F ---- Definição de Métodos ------//
