@@ -1,4 +1,4 @@
 public class Empresa {
-    public String aNomEmp = "Bodega";
-    public String aCodEmp = "758.589.117/0001-17";
+    String aNomEmp = "Bodega";
+    String aCodEmp = "7585.89.117/0001-17";
 }

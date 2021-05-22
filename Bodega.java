@@ -1,5 +1,8 @@
+import java.util.Scanner;
+
 public class Bodega{
     public static void main(String[] args){
+        //--- I ---- horse ------------------//
         System.out.println(""" 
         ......................................+o:.......................................................................
 ..........................dyso/.....sNMMyshdddhs/...............................................................
@@ -72,8 +75,77 @@ mMM+   oMMMm`   :ydooymmy/`     `.---.````              `:ymNds/:/yNM+
 +MMhsdmds/`                                              +MMh       dMy            
 +so++/:.`                                                 `dMMo_____NMo            
  """);
-    System.out.println("MENU:");
-    System.out.println("1. Cadastrar bebida\n2. Mostrar bebidas\n3. Comprar bebida\n4. Vender bebida");
-    System.out.println("5. Cadastrar cliente\n6. Mostrar clientes\n7. Sair");
-    }    
+        //--- F ---- horse -----------------//
+
+        //--- I ---- Variáveis -------------//
+        
+        //--- F ---- Variáveis -------------//
+
+        //--- I ---- Menu ------------------//
+        System.out.println("MENU:");
+        System.out.println("1. Cadastrar bebida\n2. Mostrar bebidas\n3. Comprar bebida\n4. Vender bebida");
+        System.out.println("5. Cadastrar cliente\n6. Mostrar clientes\n7. Sair");
+        //--- F ---- Menu ------------------//
+
+        //--- I ---- Scan Menu -------------//
+        Scanner scan = new Scanner(System.in);
+        String leitor = scan.nextLine();
+        //--- F ---- Scan Menu -------------//
+
+        //--- I ---- Cadastrar Bebida ------//
+        if (leitor == "1"){
+            System.out.println("Código do Produto: ");
+            int produto = scan.nextInt();
+            System.out.println("Nome do Produto: ");
+            String descricao = scan.nextLine();
+            System.out.println("Conteúdo líquido em ml: ");
+            int mls = scan.nextInt();
+            System.out.println("Preço de venda: ");
+            float preco = scan.nextFloat();
+            System.out.println("Quantidade em estoque: ");
+            int estoque = scan.nextInt();
+            System.out.println("Possui teor alcoólico? ");
+            boolean alcool = scan.nextBoolean();
+            Bebida bebida = new Bebida(produto,descricao,mls,preco,estoque,alcool);
+        }
+        //--- F ---- Cadastrar Bebida ------//
+
+        //--- I ---- Mostrar Bebida --------//
+        if (leitor == "2"){
+
+        }
+        //--- F ---- Mostrar Bebida --------//
+
+        //--- I ---- Comprar Bebida --------//
+        if (leitor == "3"){
+
+        }
+        //--- F ---- Comprar Bebida --------//
+
+        //--- I ---- Vender Bebida ---------//
+        if (leitor == "4"){
+
+        }
+        //--- F ---- Vender Bebida ---------//
+
+        //--- I ---- Cadastrar Cliente -----//
+        if (leitor == "5"){
+
+        }
+        //--- F ---- Cadastrar Cliente -----//
+
+        //--- I ---- Mostrar Clientes ------//
+        if (leitor == "6"){
+
+        }
+        //--- F ---- Mostrar Clientes ------//
+
+        //--- I ---- Sair ------------------//
+        if (leitor == "7"){
+        System.exit(0);
+        }
+        //--- F ---- Sair ------------------//
+
+        scan.close();
+    }
 }
