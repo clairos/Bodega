@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Bodega{
     public static void main(String[] args){
-        //--- I ---- horse ------------------//
+        //--- I ---- horsie ----------------//
         System.out.println(""" 
         ......................................+o:.......................................................................
 ..........................dyso/.....sNMMyshdddhs/...............................................................
@@ -77,7 +77,7 @@ mMM+   oMMMm`   :ydooymmy/`     `.---.````              `:ymNds/:/yNM+
 +MMhsdmds/`                                              +MMh       dMy            
 +so++/:.`                                                 `dMMo_____NMo            
  """);
-        //--- F ---- horse -----------------//
+        //--- F ---- horsie ----------------//
 
         //--- I ---- Variáveis -------------//
         List<Bebida> bebidas = new ArrayList<Bebida>();
@@ -142,7 +142,7 @@ mMM+   oMMMm`   :ydooymmy/`     `.---.````              `:ymNds/:/yNM+
             if (leitor == 3){
                 System.out.print("Código da bebida: ");
                 int codigo = scanner.nextInt();
-                System.out.println("Quantidade de entrada: ");
+                System.out.print("Quantidade de entrada: ");
                 int entrada = scanner.nextInt();
                 for (int i = 0; i < bebidas.size(); i++){
                     if (bebidas.get(i).getNCodPro() == codigo){
@@ -154,11 +154,11 @@ mMM+   oMMMm`   :ydooymmy/`     `.---.````              `:ymNds/:/yNM+
 
             //--- I ---- Vender Bebida ---------//
             if (leitor == 4){
-                System.out.println("Código do cliente: ");
+                System.out.print("Código do cliente: ");
                 int codcli = scanner.nextInt();
-                System.out.println("Código da bebida: ");
+                System.out.print("Código da bebida: ");
                 int codpro = scanner.nextInt();
-                System.out.println("Quantidade da compra: ");
+                System.out.print("Quantidade da compra: ");
                 int saida = scanner.nextInt();
                 Clientes cliente = new Clientes();
                 for (int i = 0; i < cachaceiros.size(); i++){
@@ -182,10 +182,10 @@ mMM+   oMMMm`   :ydooymmy/`     `.---.````              `:ymNds/:/yNM+
                 System.out.print("Nome: ");
                 String nome = scanner.nextLine();
                 System.out.print("CPF: ");
-                int cpf = scanner.nextInt();
+                String cpf = scanner.nextLine();
                 System.out.print("O cliente é maior de idade ('true' ou 'false'): ");
                 boolean adulto = scanner.nextBoolean();
-                System.out.print("Vender fiado? ");
+                System.out.print("Vender fiado ('true' ou 'false'): ");
                 boolean fiado = scanner.nextBoolean();
                 Clientes cliente = new Clientes(codigo, nome, cpf, adulto, fiado);
                 cachaceiros.add(cliente);
@@ -199,7 +199,7 @@ mMM+   oMMMm`   :ydooymmy/`     `.---.````              `:ymNds/:/yNM+
                     System.out.println("---------------------------------------");
                     System.out.println("Código do cliente: " + c.getNCodCli());
                     System.out.println("Nome do cliente: " + c.getANomCli());
-                    System.out.println("CPF: " + c.getNCpfCli());
+                    System.out.println("CPF: " + c.getACpfCli());
                     System.out.println("+18: " + c.getBCliMai());
                     System.out.println("Vender fiado: " + c.getBFiaDoo());
                     System.out.println("---------------------------------------");

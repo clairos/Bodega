@@ -2,16 +2,16 @@ public class Clientes {
     //--- I ---- Definição de Variáveis ----//
     private int nCodCli;
     private String aNomCli;
-    private int nCpfCli;
+    private String aCpfCli;
     private boolean bCliMai;
     private boolean bFiaDoo;
     //--- F ---- Definição de Variáveis ----//
 
     //--- I ---- Construtores --------------//
-    public Clientes(int codigo, String nome, int cpf, boolean adulto, boolean fiado) {
+    public Clientes(int codigo, String nome, String cpf, boolean adulto, boolean fiado) {
         this.nCodCli = codigo;
         this.aNomCli = nome;
-        this.nCpfCli = cpf;
+        this.aCpfCli = cpf;
         this.bCliMai = adulto;
         this.bFiaDoo = fiado;
     }
@@ -36,12 +36,12 @@ public class Clientes {
         this.aNomCli = nome;
     }
 
-    public int getNCpfCli() {
-        return this.nCpfCli;
+    public String getACpfCli() {
+        return this.aCpfCli;
     }
 
-    public void setNCpfCli(int cpf) {
-        this.nCpfCli = cpf;
+    public void setACpfCli(String cpf) {
+        this.aCpfCli = cpf;
     }
 
     public boolean isBCliMai() {
