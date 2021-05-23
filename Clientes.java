@@ -1,4 +1,4 @@
-public class Clientes {
+public class Clientes implements java.io.Serializable{
     //--- I ---- Definição de Variáveis ----//
     private int nCodCli;
     private String aNomCli;

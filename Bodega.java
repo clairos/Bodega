@@ -15,13 +15,14 @@ public class Bodega{
         List<Bebida> bebidas = new ArrayList<Bebida>();
         List<Clientes> cachaceiros = new ArrayList<Clientes>();
         Scanner scanner = new Scanner(System.in);
-        File txt = new File("C:\\Users\\clara\\OneDrive\\Área de Trabalho\\UFFS\\Bodega\\arquivo.txt");
+        File drink = new File("C:\\Users\\clara\\OneDrive\\Área de Trabalho\\UFFS\\Bodega\\arquivobebida.txt");
+        File client = new File("C:\\Users\\clara\\OneDrive\\Área de Trabalho\\UFFS\\Bodega\\arquivocliente.txt");
         boolean cunt = true;
         //--- F ---- Variáveis -------------//
         
-        //--- teste ler arquivo ------------//
+        //--- I ---- Ler Bebidas -----------//
         try {
-            FileInputStream fi = new FileInputStream(txt);
+            FileInputStream fi = new FileInputStream(drink);
             ObjectInputStream oi = new ObjectInputStream(fi);
             while (cunt){
                 Bebida b = (Bebida) oi.readObject();
@@ -42,8 +43,32 @@ public class Bodega{
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        //--- teste ler arquivo ------------//
-
+        //--- F ---- Ler Bebidas -----------//
+        
+        //--- I ---- Ler Clientes ----------//
+        try {
+            FileInputStream fi = new FileInputStream(client);
+            ObjectInputStream oi = new ObjectInputStream(fi);
+            while (cunt){
+                Clientes c = (Clientes) oi.readObject();
+                if (c != null){
+                    cachaceiros.add(c);
+                    c = null;
+                }
+                else{
+                    cunt = false;
+                }
+            }
+            fi.close();
+            oi.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Arquivo não encontrado");
+        } catch (IOException e) {
+            System.out.println("Erro ao inicializar stream");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        //--- F ---- Ler Clientes ----------//
         while (true){
             //--- I ---- Menu ------------------//
             System.out.println("--------- MENU ---------");
@@ -170,9 +195,9 @@ public class Bodega{
             //--- I ---- Salvar e Sair ---------//
             if (leitor == 7){
                 scanner.close();
-                //------ teste salvar aquivo ------//
+                //--- I ---- Salvar Bebidas --------//
                 try {
-                    FileOutputStream arq = new FileOutputStream(txt);
+                    FileOutputStream arq = new FileOutputStream(drink);
                     ObjectOutputStream o = new ObjectOutputStream(arq);
 
                     for (int i = 0; i < bebidas.size(); i++){
@@ -185,7 +210,25 @@ public class Bodega{
                 } catch (IOException e) {
                     System.out.println("Erro ao inicializar stream");
                 } 
-                //------ teste salvar aquivo ------//
+                //--- F ---- Salvar Bebidas --------//
+
+                //--- I ---- Salvar Clientes -------//
+                try {
+                    FileOutputStream arq = new FileOutputStream(client);
+                    ObjectOutputStream o = new ObjectOutputStream(arq);
+
+                    for (int i = 0; i < cachaceiros.size(); i++){
+                        o.writeObject(cachaceiros.get(i));
+                    }
+                    o.close();
+                    arq.close();
+                } catch (FileNotFoundException e) {
+                    System.out.println("Arquivo não existe");
+                } catch (IOException e) {
+                    System.out.println("Erro ao inicializar stream");
+                } 
+                //--- F ---- Salvar Clientes -------//
+
                 System.exit(0);
             }
             //--- F ---- Sair ------------------//
