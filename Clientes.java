@@ -2,18 +2,18 @@ public class Clientes {
     //--- I ---- Definição de Variáveis ----//
     private int nCodCli;
     private String aNomCli;
-    private String aCpfCli;
+    private int nCpfCli;
     private boolean bCliMai;
     private boolean bFiaDoo;
     //--- F ---- Definição de Variáveis ----//
 
     //--- I ---- Construtores --------------//
-    public Clientes(int nCodCli, String aNomCli, String aCpfCli, boolean bCliMai, boolean bFiaDoo) {
-        this.nCodCli = nCodCli;
-        this.aNomCli = aNomCli;
-        this.aCpfCli = aCpfCli;
-        this.bCliMai = bCliMai;
-        this.bFiaDoo = bFiaDoo;
+    public Clientes(int codigo, String nome, int cpf, boolean adulto, boolean fiado) {
+        this.nCodCli = codigo;
+        this.aNomCli = nome;
+        this.nCpfCli = cpf;
+        this.bCliMai = adulto;
+        this.bFiaDoo = fiado;
     }
     public Clientes(){
     }
@@ -24,24 +24,24 @@ public class Clientes {
         return this.nCodCli;
     }
 
-    public void setNCodCli(int nCodCli) {
-        this.nCodCli = nCodCli;
+    public void setNCodCli(int codigo) {
+        this.nCodCli = codigo;
     }
 
     public String getANomCli() {
         return this.aNomCli;
     }
 
-    public void setANomCli(String aNomCli) {
-        this.aNomCli = aNomCli;
+    public void setANomCli(String nome) {
+        this.aNomCli = nome;
     }
 
-    public String getNCpfCli() {
-        return this.aCpfCli;
+    public int getNCpfCli() {
+        return this.nCpfCli;
     }
 
-    public void setACpfCli(String aCpfCli) {
-        this.aCpfCli = aCpfCli;
+    public void setNCpfCli(int cpf) {
+        this.nCpfCli = cpf;
     }
 
     public boolean isBCliMai() {
@@ -52,8 +52,8 @@ public class Clientes {
         return this.bCliMai;
     }
 
-    public void setBCliMai(boolean bCliMai) {
-        this.bCliMai = bCliMai;
+    public void setBCliMai(boolean adulto) {
+        this.bCliMai = adulto;
     }
 
     public boolean isBFiaDoo() {
@@ -64,8 +64,8 @@ public class Clientes {
         return this.bFiaDoo;
     }
 
-    public void setBFiaDoo(boolean bFiaDoo) {
-        this.bFiaDoo = bFiaDoo;
-    }
+    public void setBFiaDoo(boolean fiado) {
+        this.bFiaDoo = fiado;
+    }    
     //--- F ---- Getters & Setters ---------//
 }

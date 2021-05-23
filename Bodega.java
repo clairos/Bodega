@@ -87,9 +87,15 @@ mMM+   oMMMm`   :ydooymmy/`     `.---.````              `:ymNds/:/yNM+
 
         //--- I ---- Menu ------------------//
         while (true){
-            System.out.println("MENU:");
-            System.out.println("1. Cadastrar bebida\n2. Mostrar bebidas\n3. Comprar bebida\n4. Vender bebida");
-            System.out.println("5. Cadastrar cliente\n6. Mostrar clientes\n7. Sair");
+            System.out.println("--------- MENU ---------");
+            System.out.println("|1.| CADASTRAR BEBIDA");
+            System.out.println("|2.| MOSTRAR BEBIDAS");
+            System.out.println("|3.| COMPRAR BEBIDA");
+            System.out.println("|4.| VENDER BEBIDA");
+            System.out.println("|5.| CADASTRAR CLIENTE");
+            System.out.println("|6.| MOSTRAR CLIENTES");
+            System.out.println("|7.| SAIR");
+            System.out.println("------------------------");
             //--- F ---- Menu ------------------//
 
             //--- I ---- Scan Menu -------------//
@@ -170,7 +176,19 @@ mMM+   oMMMm`   :ydooymmy/`     `.---.````              `:ymNds/:/yNM+
 
             //--- I ---- Cadastrar Cliente -----//
             if (leitor == 5){
-
+                System.out.print("Código: ");
+                int codigo = scanner.nextInt();
+                scanner.nextLine();
+                System.out.print("Nome: ");
+                String nome = scanner.nextLine();
+                System.out.print("CPF: ");
+                int cpf = scanner.nextInt();
+                System.out.print("O cliente é maior de idade ('true' ou 'false'): ");
+                boolean adulto = scanner.nextBoolean();
+                System.out.print("Vender fiado? ");
+                boolean fiado = scanner.nextBoolean();
+                Clientes cliente = new Clientes(codigo, nome, cpf, adulto, fiado);
+                cachaceiros.add(cliente);
             }
             //--- F ---- Cadastrar Cliente -----//
 
@@ -180,8 +198,10 @@ mMM+   oMMMm`   :ydooymmy/`     `.---.````              `:ymNds/:/yNM+
                     Clientes c = cachaceiros.get(i);
                     System.out.println("---------------------------------------");
                     System.out.println("Código do cliente: " + c.getNCodCli());
-                    System.out.println("Nome do cliente: " + c.getANomCli();
-                    System.out.println("CPF: " + c.get);
+                    System.out.println("Nome do cliente: " + c.getANomCli());
+                    System.out.println("CPF: " + c.getNCpfCli());
+                    System.out.println("+18: " + c.getBCliMai());
+                    System.out.println("Vender fiado: " + c.getBFiaDoo());
                     System.out.println("---------------------------------------");
 
                 }
