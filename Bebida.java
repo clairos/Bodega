@@ -1,4 +1,5 @@
-public class Bebida {
+public class Bebida implements java.io.Serializable{
+
     //--- I ---- Definição de Variáveis ----//
     private int nCodPro;
     private String aDesPro;

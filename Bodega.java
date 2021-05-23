@@ -16,25 +16,32 @@ public class Bodega{
         List<Clientes> cachaceiros = new ArrayList<Clientes>();
         Scanner scanner = new Scanner(System.in);
         File txt = new File("C:\\Users\\clara\\OneDrive\\Área de Trabalho\\UFFS\\Bodega\\arquivo.txt");
+        boolean cunt = true;
         //--- F ---- Variáveis -------------//
         
         //--- teste ler arquivo ------------//
-        try {
-            FileInputStream fi = new FileInputStream(txt);
-            ObjectInputStream oi = new ObjectInputStream(fi);
+        while (cunt){
+            try {
+                FileInputStream fi = new FileInputStream(txt);
+                ObjectInputStream oi = new ObjectInputStream(fi);
 
-            while ( oi.available() != 0){
                 Bebida b = (Bebida) oi.readObject();
-                bebidas.add(b);
+                if (b != null){
+                    bebidas.add(b);
+                }
+                else{
+                    cunt = false;
+                }
+                
+                fi.close();
+                oi.close();
+            } catch (FileNotFoundException e) {
+                System.out.println("Arquivo não encontrado");
+            } catch (IOException e) {
+                System.out.println("Erro ao inicializar stream");
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
             }
-            fi.close();
-            oi.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found");
-        } catch (IOException e) {
-            System.out.println("Error initializing stream");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
         }
         //--- teste ler arquivo ------------//
             //--- I ---- Menu ------------------//
@@ -177,9 +184,8 @@ public class Bodega{
                     System.out.println("Arquivo não existe");
                 } catch (IOException e) {
                     System.out.println("Erro ao inicializar stream");
-                }
+                } 
                 //------ teste salvar aquivo ------//
-
                 System.exit(0);
             }
             //--- F ---- Sair ------------------//
