@@ -1,20 +1,43 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
-import java.io.FileWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.FileReader;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 public class Bodega{
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args){
         //--- I ---- Variáveis -------------//
         List<Bebida> bebidas = new ArrayList<Bebida>();
         List<Clientes> cachaceiros = new ArrayList<Clientes>();
         Scanner scanner = new Scanner(System.in);
+        File txt = new File("C:\\Users\\clara\\OneDrive\\Área de Trabalho\\UFFS\\Bodega\\arquivo.txt");
         //--- F ---- Variáveis -------------//
+        
+        //--- teste ler arquivo ------------//
+        try {
+            FileInputStream fi = new FileInputStream(txt);
+            ObjectInputStream oi = new ObjectInputStream(fi);
 
-        //--- I ---- Menu ------------------//
+            while ( oi.available() != 0){
+                Bebida b = (Bebida) oi.readObject();
+                bebidas.add(b);
+            }
+            fi.close();
+            oi.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found");
+        } catch (IOException e) {
+            System.out.println("Error initializing stream");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        //--- teste ler arquivo ------------//
+            //--- I ---- Menu ------------------//
         while (true){
             System.out.println("--------- MENU ---------");
             System.out.println("|1.| CADASTRAR BEBIDA");
@@ -23,7 +46,7 @@ public class Bodega{
             System.out.println("|4.| VENDER BEBIDA");
             System.out.println("|5.| CADASTRAR CLIENTE");
             System.out.println("|6.| MOSTRAR CLIENTES");
-            System.out.println("|7.| SAIR");
+            System.out.println("|7.| SALVAR E SAIR");
             System.out.println("------------------------");
             //--- F ---- Menu ------------------//
 
@@ -48,26 +71,6 @@ public class Bodega{
                 boolean alcool = scanner.nextBoolean();
                 Bebida cachaça = new Bebida(produto,descricao,mls,preco,estoque,alcool);
                 bebidas.add(cachaça);
-
-                //------ teste salvar aquivo ------//
-                FileWriter arq = new FileWriter("C:\\Users\\clara\\OneDrive\\Área de Trabalho\\UFFS\\Bodega\\arquivo.txt");
-                PrintWriter salva = new PrintWriter(arq);
-
-                salva.println("---------------------------------------");
-                for (int i = 0; i < bebidas.size(); i++){
-                    salva.println("---------------------------------------");
-                    salva.println("Código: " + bebidas.get(i).getNCodPro());
-                    salva.println("Nome: " + bebidas.get(i).getADesPro());
-                    salva.println("Conteúdo líquido em ml: " + bebidas.get(i).getNQtdMls());
-                    salva.println("Preço: " + bebidas.get(i).getFPreBas());
-                    salva.println("Quantidade em estoque: " + bebidas.get(i).getNQtdEst());
-                    salva.println("Possui teor alcoólico: " + bebidas.get(i).getBAlcOol());
-                    salva.println("---------------------------------------");
-                }
-                salva.println("---------------------------------------");
-                arq.close();
-                //------ teste salvar aquivo ------//
-
             }
             //--- F ---- Cadastrar Bebida ------//
 
@@ -157,15 +160,32 @@ public class Bodega{
             }
             //--- F ---- Mostrar Clientes ------//
 
-            //--- I ---- Sair ------------------//
+            //--- I ---- Salvar e Sair ---------//
             if (leitor == 7){
                 scanner.close();
+                //------ teste salvar aquivo ------//
+                try {
+                    FileOutputStream arq = new FileOutputStream(txt);
+                    ObjectOutputStream o = new ObjectOutputStream(arq);
+
+                    for (int i = 0; i < bebidas.size(); i++){
+                        o.writeObject(bebidas.get(i));
+                    }
+                    o.close();
+                    arq.close();
+                } catch (FileNotFoundException e) {
+                    System.out.println("Arquivo não existe");
+                } catch (IOException e) {
+                    System.out.println("Erro ao inicializar stream");
+                }
+                //------ teste salvar aquivo ------//
+
                 System.exit(0);
             }
             //--- F ---- Sair ------------------//
 
             //--- I ---- Mensagem Erro --------//
-            if ((leitor != 1) && (leitor != 2) && (leitor != 3) && (leitor != 4) && (leitor != 5) && (leitor != 6) && (leitor != 7) && (leitor != 69)) {
+            if ((leitor != 1) && (leitor != 2) && (leitor != 3) && (leitor != 4) && (leitor != 5) && (leitor != 6) && (leitor != 7) && (leitor != 69)){
                 System.out.println("Por favor, escolha um item que está no menu :)");    
             }
             //--- F ---- Mensagem Erro --------//
