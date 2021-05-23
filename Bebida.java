@@ -99,7 +99,7 @@ public class Bebida implements java.io.Serializable{
     }
 
     public void vendeBebida(Clientes cliente, int saida){
-        if (nQtdEst > 0){
+        if (nQtdEst > 0 && nQtdEst >= saida){
             if (bAlcOol == true){
                 if(cliente.isBCliMai() == true){
                 this.nSaiEst = saida;
@@ -115,7 +115,7 @@ public class Bebida implements java.io.Serializable{
             }
         }
         else{
-            System.out.println("cabo o estoque fi");
+            System.out.println("num tem estoque fi");
         }
     }
     //--- F ---- Definição de Métodos ------//
