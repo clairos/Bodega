@@ -28,6 +28,7 @@ public class Bodega{
                 Bebida b = (Bebida) oi.readObject();
                 if (b != null){
                     bebidas.add(b);
+                    b = null;
                 }
                 else{
                     cunt = false;
@@ -44,8 +45,9 @@ public class Bodega{
             }
         }
         //--- teste ler arquivo ------------//
-            //--- I ---- Menu ------------------//
+
         while (true){
+            //--- I ---- Menu ------------------//
             System.out.println("--------- MENU ---------");
             System.out.println("|1.| CADASTRAR BEBIDA");
             System.out.println("|2.| MOSTRAR BEBIDAS");
