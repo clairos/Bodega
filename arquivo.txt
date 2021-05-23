@@ -1,3 +1,18 @@
 ---------------------------------------
-Código: 7770324
+---------------------------------------
+Código: 123
+Nome: corote
+Conteúdo líquido em ml: 500
+Preço: 7.5
+Quantidade em estoque: 11
+Possui teor alcoólico: true
+---------------------------------------
+---------------------------------------
+Código: 321
+Nome: coca
+Conteúdo líquido em ml: 350
+Preço: 4.0
+Quantidade em estoque: 29
+Possui teor alcoólico: false
+---------------------------------------
 ---------------------------------------

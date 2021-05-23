@@ -4,6 +4,7 @@ import java.util.List;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.FileReader;
 
 public class Bodega{
     public static void main(String[] args) throws IOException{
@@ -129,12 +130,19 @@ mMM+   oMMMm`   :ydooymmy/`     `.---.````              `:ymNds/:/yNM+
 
                 salva.println("---------------------------------------");
                 for (int i = 0; i < bebidas.size(); i++){
+                    salva.println("---------------------------------------");
                     salva.println("Código: " + bebidas.get(i).getNCodPro());
+                    salva.println("Nome: " + bebidas.get(i).getADesPro());
+                    salva.println("Conteúdo líquido em ml: " + bebidas.get(i).getNQtdMls());
+                    salva.println("Preço: " + bebidas.get(i).getFPreBas());
+                    salva.println("Quantidade em estoque: " + bebidas.get(i).getNQtdEst());
+                    salva.println("Possui teor alcoólico: " + bebidas.get(i).getBAlcOol());
+                    salva.println("---------------------------------------");
                 }
                 salva.println("---------------------------------------");
                 arq.close();
                 //------ teste salvar aquivo ------//
-                
+
             }
             //--- F ---- Cadastrar Bebida ------//
 
