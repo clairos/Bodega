@@ -15,6 +15,7 @@ public class Clientes {
         this.bCliMai = adulto;
         this.bFiaDoo = fiado;
     }
+    
     public Clientes(){
     }
     //--- F ---- Construtores --------------//

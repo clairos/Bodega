@@ -1,9 +1,12 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 public class Bodega{
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException{
         //--- I ---- horsie ----------------//
         System.out.println(""" 
         ......................................+o:.......................................................................
@@ -119,6 +122,19 @@ mMM+   oMMMm`   :ydooymmy/`     `.---.````              `:ymNds/:/yNM+
                 boolean alcool = scanner.nextBoolean();
                 Bebida cachaça = new Bebida(produto,descricao,mls,preco,estoque,alcool);
                 bebidas.add(cachaça);
+
+                //------ teste salvar aquivo ------//
+                FileWriter arq = new FileWriter("C:\\Users\\clara\\OneDrive\\Área de Trabalho\\UFFS\\Bodega\\arquivo.txt");
+                PrintWriter salva = new PrintWriter(arq);
+
+                salva.println("---------------------------------------");
+                for (int i = 0; i < bebidas.size(); i++){
+                    salva.println("Código: " + bebidas.get(i).getNCodPro());
+                }
+                salva.println("---------------------------------------");
+                arq.close();
+                //------ teste salvar aquivo ------//
+                
             }
             //--- F ---- Cadastrar Bebida ------//
 
