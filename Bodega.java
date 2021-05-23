@@ -20,11 +20,10 @@ public class Bodega{
         //--- F ---- Variáveis -------------//
         
         //--- teste ler arquivo ------------//
-        while (cunt){
-            try {
-                FileInputStream fi = new FileInputStream(txt);
-                ObjectInputStream oi = new ObjectInputStream(fi);
-
+        try {
+            FileInputStream fi = new FileInputStream(txt);
+            ObjectInputStream oi = new ObjectInputStream(fi);
+            while (cunt){
                 Bebida b = (Bebida) oi.readObject();
                 if (b != null){
                     bebidas.add(b);
@@ -33,16 +32,15 @@ public class Bodega{
                 else{
                     cunt = false;
                 }
-                
-                fi.close();
-                oi.close();
-            } catch (FileNotFoundException e) {
-                System.out.println("Arquivo não encontrado");
-            } catch (IOException e) {
-                System.out.println("Erro ao inicializar stream");
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
             }
+            fi.close();
+            oi.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Arquivo não encontrado");
+        } catch (IOException e) {
+            System.out.println("Erro ao inicializar stream");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
         //--- teste ler arquivo ------------//
 
