@@ -176,7 +176,15 @@ mMM+   oMMMm`   :ydooymmy/`     `.---.````              `:ymNds/:/yNM+
 
             //--- I ---- Mostrar Clientes ------//
             if (leitor == 6){
+                for (int i = 0; i < cachaceiros.size(); i++){
+                    Clientes c = cachaceiros.get(i);
+                    System.out.println("---------------------------------------");
+                    System.out.println("Código do cliente: " + c.getNCodCli());
+                    System.out.println("Nome do cliente: " + c.getANomCli();
+                    System.out.println("CPF: " + c.get);
+                    System.out.println("---------------------------------------");
 
+                }
             }
             //--- F ---- Mostrar Clientes ------//
 
