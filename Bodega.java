@@ -69,10 +69,10 @@ public class Bodega{
             e.printStackTrace();
         }
         //--- F ---- Ler Clientes ----------//
-        while (true){
-            //--- I ---- Menu ------------------//
+
+        //--- I ---- Menu ----------------------//
             System.out.println("""
-            ⡴⠑⡄⠀⠀⠀⠀⠀⠀⠀ ⣀⣀⣤⣤⣤⣀⡀
+             ⡴⠑⡄⠀⠀⠀⠀⠀⠀⠀ ⣀⣀⣤⣤⣤⣀⡀
             ⠸⡇⠀⠿⡀⠀⠀⠀⣀⡴⢿⣿⣿⣿⣿⣿⣿⣿⣷⣦⡀
             ⠀⠀⠀⠀⠑⢄⣠⠾⠁⣀⣄⡈⠙⣿⣿⣿⣿⣿⣿⣿⣿⣆ bodega
             ⠀⠀⠀⠀⢀⡀⠁⠀⠀⠈⠙⠛⠂⠈⣿⣿⣿⣿⣿⠿⡿⢿⣆
@@ -86,6 +86,7 @@ public class Bodega{
             ⠀⠀⠀⠀⠀⠀⣀⣀⣈⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇
             ⠀⠀⠀⠀⠀⠀⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
             """);
+        while (true){
             System.out.println("--------- MENU ---------");
             System.out.println("|1.| CADASTRAR BEBIDA");
             System.out.println("|2.| MOSTRAR BEBIDAS");
@@ -95,7 +96,7 @@ public class Bodega{
             System.out.println("|6.| MOSTRAR CLIENTES");
             System.out.println("|7.| SALVAR E SAIR");
             System.out.println("------------------------");
-            //--- F ---- Menu ------------------//
+        //--- F ---- Menu ----------------------//
 
             //--- I ---- Scan Menu -------------//
             int leitor = scanner.nextInt();
